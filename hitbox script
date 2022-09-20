@@ -1,0 +1,114 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "hitbox fucker", HidePremium = false, SaveConfig = true, ConfigFolder = "testing"})
+
+
+local main = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local main = main:AddSection({
+	Name = "Main"
+})
+
+OrionLib:MakeNotification({
+	Name = "Made By",
+	Content = "Credits to SimpleMoney",
+	Image = "rbxassetid://4483345998",
+	Time = 10
+})
+--small
+main:AddToggle({
+	Name = "small hitbox",
+	Default = false,
+	Callback = function(Value)
+		_G.HeadSize = 2
+_G.Disabled = true
+ 
+game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 0.3
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really white")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end)
+	end    
+})
+--big
+main:AddToggle({
+	Name = "Big hitbox",
+	Default = false,
+	Callback = function(Value)
+	_G.HeadSize = 10
+_G.Disabled = true
+ 
+game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 0.7
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really white")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end)
+	end    
+})
+--huge
+main:AddToggle({
+	Name = "huge hitbox (laggy)",
+	Default = false,
+	Callback = function(Value)
+	_G.HeadSize = 20
+_G.Disabled = true
+ 
+game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 0.7
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really white")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end)
+	end    
+})
+
+
+------------------------------------------------------------------
+
+
+
+local cred = Window:MakeTab({
+	Name = "Credits",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local cred = cred:AddSection({
+	Name = "Credits"
+})
+
+cred:AddLabel("Made by SimpleMoney")
+
+OrionLib:Init()
